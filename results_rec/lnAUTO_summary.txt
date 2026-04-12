@@ -1,0 +1,17 @@
+
+Call:
+single_augsynth(form = form, unit = !!enquo(unit), time = !!enquo(time), 
+    t_int = t_int, data = data, progfunc = "none", scm = TRUE)
+
+Average ATT Estimate (p Value for Joint Null):  -0.121   ( 0.23 )
+L2 Imbalance: 0.112
+Percent improvement from uniform weights: 96%
+
+Avg Estimated Bias: NA
+
+Inference type: Conformal inference
+
+ Time Estimate 95% CI Lower Bound 95% CI Upper Bound p Value
+ 2017   -0.059             -0.306              0.199   0.247
+ 2018   -0.143             -0.295              0.104   0.039
+ 2019   -0.161             -0.418              0.044   0.045

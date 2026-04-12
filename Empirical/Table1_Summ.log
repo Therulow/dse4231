@@ -1,0 +1,51 @@
+-----------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:/OneDrive/Works/Crime_Pots/Empirical/Table1_Summ.log
+  log type:  text
+ opened on:  25 Oct 2025, 16:56:36
+
+. 
+. use $path/crime_potsv4.dta
+
+. 
+. gen VIOLENT1 = exp(lnVIOLENT1)
+
+. gen MURDER = exp(lnMURDER) 
+
+. gen RAPE = exp(lnRAPE)
+
+. gen ROBBERY = exp(lnROBBERY)
+
+. gen ASSAULT = exp(lnASSAULT)
+
+. gen PROPERTY = exp(lnPROPERTY)
+
+. gen BURGLARY = exp(lnBURGLARY)
+
+. gen LARCENY = exp(lnLARCENY)
+
+. gen AUTO = exp(lnAUTO)
+
+. 
+. summ VIOLENT1 MURDER RAPE ROBBERY ASSAULT PROPERTY BURGLARY LARCENY AUTO
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+    VIOLENT1 |      1,250    404.2308    184.6602   66.87697   1070.951
+      MURDER |      1,250    4.810174    2.597187   .4676676   17.51321
+        RAPE |      1,250    36.53736    14.43239     11.158   161.6406
+     ROBBERY |      1,250    100.7764    62.45429    6.14787   423.1257
+     ASSAULT |      1,250    262.1069    132.4148    34.0694   766.7208
+-------------+---------------------------------------------------------
+    PROPERTY |      1,250    3178.213      998.09   1179.789   7500.119
+    BURGLARY |      1,250    658.0222    265.1439   126.2768   1522.357
+     LARCENY |      1,250    2220.338    653.1937   911.7734   5046.923
+        AUTO |      1,250    299.8528    171.5765    28.4326   1157.658
+
+. 
+. log close
+      name:  <unnamed>
+       log:  D:/OneDrive/Works/Crime_Pots/Empirical/Table1_Summ.log
+  log type:  text
+ closed on:  25 Oct 2025, 16:56:36
+-----------------------------------------------------------------------------------------------------

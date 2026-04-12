@@ -1,0 +1,904 @@
+-----------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  D:/OneDrive/Works/Crime_Pots/Empirical/Table5_SDID.log
+  log type:  text
+ opened on:  25 Oct 2025, 18:37:32
+
+. 
+. use $path/crime_potsv4.dta
+
+. 
+. replace AVG_MED = 0 if missing(AVG_MED)
+(50 real changes made)
+
+. replace AVG_REC = 0 if missing(AVG_REC)
+(50 real changes made)
+
+. 
+. /* Set up explanatory variables */
+. global tvar STt_* STtsq_*
+
+. global xvar GOV_DEM STATE_DEM POV_RATE UNRATE POP_DENSITY AVG_MED AVG_REC lnCIG lnALCOHOL lnREALINC
+
+. 
+. /* SDID, Difference-in-Difference, and state specific trend */
+. 
+. sdid lnVIOLENT1 STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.00502    0.04809    -0.10    0.917    -0.09928     0.08923
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnVIOLENT1 STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.09652    0.06870    -1.40    0.160    -0.23117     0.03814
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnVIOLENT1 STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.03087    0.06317    -0.49    0.625    -0.15469     0.09295
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnVIOLENT1 STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.03837    0.03950     0.97    0.331    -0.03905     0.11579
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnVIOLENT1 STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.17408    0.07015    -2.48    0.013    -0.31156    -0.03659
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnVIOLENT1 STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnVIOLENT1 |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.00019    0.05693    -0.00    0.997    -0.11176     0.11139
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnPROPERTY STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.03659    0.02877    -1.27    0.203    -0.09298     0.01979
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnPROPERTY STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.20926    0.12082    -1.73    0.083    -0.44606     0.02754
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnPROPERTY STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |   0.00169    0.03447     0.05    0.961    -0.06588     0.06925
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnPROPERTY STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.07525    0.03519     2.14    0.033     0.00627     0.14423
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnPROPERTY STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.09182    0.19389    -0.47    0.636    -0.47185     0.28820
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnPROPERTY STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnPROPERTY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.11075    0.03443     3.22    0.001     0.04326     0.17824
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnMURDER STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.14791    0.06367    -2.32    0.020    -0.27270    -0.02313
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnMURDER STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.04814    0.11445    -0.42    0.674    -0.27245     0.17617
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnMURDER STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.09664    0.07313    -1.32    0.186    -0.23997     0.04669
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnMURDER STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.00638    0.05495     0.12    0.908    -0.10132     0.11408
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnMURDER STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.06324    0.09571    -0.66    0.509    -0.25082     0.12434
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnMURDER STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+    lnMURDER |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.00037    0.06658     0.01    0.996    -0.13013     0.13088
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnRAPE STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |   0.02754    0.05323     0.52    0.605    -0.07679     0.13187
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnRAPE STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.04658    0.06131    -0.76    0.447    -0.16676     0.07359
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnRAPE STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.02836    0.07434    -0.38    0.703    -0.17406     0.11734
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnRAPE STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.02807    0.04365     0.64    0.520    -0.05748     0.11361
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnRAPE STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.10375    0.13651     0.76    0.447    -0.16380     0.37131
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnRAPE STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnRAPE |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.01337    0.06046     0.22    0.825    -0.10512     0.13187
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnROBBERY STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.05254    0.06123    -0.86    0.391    -0.17256     0.06747
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnROBBERY STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |   0.01175    0.21745     0.05    0.957    -0.41445     0.43795
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnROBBERY STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.07037    0.06082    -1.16    0.247    -0.18957     0.04883
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnROBBERY STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.07438    0.07714     0.96    0.335    -0.07682     0.22558
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnROBBERY STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.20281    0.30773     0.66    0.510    -0.40032     0.80594
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnROBBERY STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnROBBERY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.10009    0.06063     1.65    0.099    -0.01874     0.21891
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnASSAULT STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |   0.00418    0.05463     0.08    0.939    -0.10290     0.11126
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnASSAULT STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.13573    0.06020    -2.25    0.024    -0.25372    -0.01774
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnASSAULT STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.01264    0.09146    -0.14    0.890    -0.19189     0.16662
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnASSAULT STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.00689    0.03549     0.19    0.846    -0.06266     0.07645
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnASSAULT STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.36988    0.12896    -2.87    0.004    -0.62264    -0.11711
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnASSAULT STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnASSAULT |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.03303    0.06915    -0.48    0.633    -0.16856     0.10250
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnBURGLARY STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.06128    0.03245    -1.89    0.059    -0.12488     0.00232
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnBURGLARY STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.27428    0.16154    -1.70    0.090    -0.59089     0.04233
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnBURGLARY STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.01854    0.04192    -0.44    0.658    -0.10070     0.06363
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnBURGLARY STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.09730    0.06978     1.39    0.163    -0.03946     0.23406
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnBURGLARY STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.12893    0.28458    -0.45    0.651    -0.68670     0.42884
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnBURGLARY STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+  lnBURGLARY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.17394    0.06075     2.86    0.004     0.05487     0.29301
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnLARCENY STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.01640    0.02755    -0.60    0.552    -0.07040     0.03760
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnLARCENY STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.17642    0.11352    -1.55    0.120    -0.39890     0.04607
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnLARCENY STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |   0.02143    0.05924     0.36    0.717    -0.09467     0.13754
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnLARCENY STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.07151    0.01981     3.61    0.000     0.03269     0.11033
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnLARCENY STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.06337    0.18236    -0.35    0.728    -0.42078     0.29405
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnLARCENY STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+   lnLARCENY |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.09236    0.03224     2.86    0.004     0.02916     0.15555
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. sdid lnAUTO STATE YEAR D_MED, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.08443    0.05010    -1.69    0.092    -0.18262     0.01375
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnAUTO STATE YEAR D_MED, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.29825    0.10878    -2.74    0.006    -0.51145    -0.08505
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnAUTO STATE YEAR D_MED, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_MED |  -0.11705    0.08715    -1.34    0.179    -0.28786     0.05376
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnAUTO STATE YEAR D_REC, vce(bootstrap)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.11689    0.07889     1.48    0.138    -0.03773     0.27150
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnAUTO STATE YEAR D_REC, vce(bootstrap) covariates($tvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |  -0.19303    0.14767    -1.31    0.191    -0.48245     0.09639
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. sdid lnAUTO STATE YEAR D_REC, vce(bootstrap) covariates($xvar, projected)
+Bootstrap replications (50). This may take some time.
+----+--- 1 ---+--- 2 ---+--- 3 ---+--- 4 ---+--- 5
+..................................................     50
+
+
+Synthetic Difference-in-Differences Estimator
+
+-----------------------------------------------------------------------------
+      lnAUTO |     ATT     Std. Err.     t      P>|t|    [95% Conf. Interval]
+-------------+---------------------------------------------------------------
+       D_REC |   0.13401    0.08855     1.51    0.130    -0.03955     0.30757
+-----------------------------------------------------------------------------
+95% CIs and p-values are based on Large-Sample approximations.
+Refer to Arkhangelsky et al., (2020) for theoretical derivations.
+
+. 
+. log close
+      name:  <unnamed>
+       log:  D:/OneDrive/Works/Crime_Pots/Empirical/Table4_SDID.log
+  log type:  text
+ closed on:  25 Oct 2025, 19:13:12
+-----------------------------------------------------------------------------------------------------
