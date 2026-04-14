@@ -1,0 +1,32 @@
+
+Call:
+multisynth(form = fmla, unit = STATE, time = YEAR, data = df_trim_med, 
+    nu = 1)
+
+Average ATT Estimate (Std. Error): -0.149  (0.088)
+
+Global L2 Imbalance: 0.016
+Scaled Global L2 Imbalance: 0.099
+Percent improvement from uniform global weights: 90.1
+
+Individual L2 Imbalance: 0.239
+Scaled Individual L2 Imbalance: 0.394
+Percent improvement from uniform individual weights: 60.6	
+
+ Time Since Treatment   Level    Estimate  Std.Error lower_bound  upper_bound
+                    0 Average -0.06270487 0.09160587  -0.2531906  0.093706484
+                    1 Average -0.26251540 0.14623552  -0.5570569  0.008935894
+                    2 Average -0.10332012 0.10215338  -0.3046474  0.085043427
+                    3 Average -0.20106557 0.12847938  -0.4497335  0.047765632
+                    4 Average -0.02035062 0.08868502  -0.2036328  0.144181089
+                    5 Average -0.20514711 0.10356794  -0.4150153 -0.020025099
+                    6 Average -0.19350497 0.11015910  -0.4203176  0.014969902
+                    7 Average -0.12111461 0.09652987  -0.3064816  0.071272035
+                    8 Average -0.12299218 0.10227922  -0.3176703  0.063651033
+                    9 Average -0.13488775 0.11023198  -0.3556457  0.074603206
+                   10 Average -0.20402621 0.14106923  -0.4608608  0.059741736
+                   11 Average -0.07947611 0.12005989  -0.2979793  0.170604977
+                   12 Average -0.15380617 0.14825232  -0.4159871  0.146173187
+                   13 Average -0.07436318 0.10594309  -0.2812181  0.137485565
+                   14 Average -0.27136917 0.17351196  -0.5982600  0.061680279
+                   15 Average -0.16823344 0.14420802  -0.4395113  0.115999016
