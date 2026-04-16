@@ -90,6 +90,15 @@ support_rec <- df2 %>%
 
 support_rec
 
+## plot
+ggplot(support_rec, aes(x = factor(event_time), y = treated_units)) +
+  geom_col(fill = "#0B3A53") +
+  labs(
+    title = "Number of Treated States by Event Time for Recreational Legalisation ",
+    x = "Event Time",
+    y = "Number of Treated States"
+  ) +
+  theme_minimal()
 #############################################################
 treat_dummy <- "D_REC"
 
@@ -311,6 +320,15 @@ support_med <- df3 %>%
   )
 
 support_med
+
+ggplot(support_med, aes(x = factor(event_time), y = treated_units)) +
+  geom_col(fill = "#0B3A53") +
+  labs(
+    title = "Number of Treated States by Event Time for Medical Legalisation ",
+    x = "Event Time",
+    y = "Number of Treated States"
+  ) +
+  theme_minimal()
 
 #############################################################
 treat_dummy <- "D_MED"
