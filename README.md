@@ -102,7 +102,7 @@ We also address:
 
 ## Project Structure
 ```r
-├── Empirical/ # Dataset and original methodology files
+├── Empirical/ # Dataset and original methodology files along with our replication. Contains original paper's README. 
 ├── pooledsc.R # Pooled synthetic control implementation
 ├── separate.R # Separate synthetic control implementation
 ├── hybrid.R # Hybrid (multisynth) implementation
