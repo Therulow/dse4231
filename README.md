@@ -114,7 +114,7 @@ We also address:
 ├── results_med_separate/ # Medical results (separate)
 ├── results_med_hybrid/ # Medical results (hybrid)
 ├── original_paper.pdf # Paper being studied
-├── report.pdf # Final project report
+├── final_report.pdf # Final project report
 └── README.md
 ```
 
